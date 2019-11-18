@@ -1,4 +1,4 @@
 import PrintImage as pi
 from PIL import Image
 
-pi.convert('images\\pikachu1.jpg', 'pikachu1.txt')
+pi.convert('images\\test2.jpg', 'test2.jpg')

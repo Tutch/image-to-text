@@ -19,4 +19,4 @@ class Output:
         converter = PCC()
         characters = converter.pixels_to_characters(source_image_path)
         dest_image = converter.characters_to_image(characters)
-        dest_image.save('output.png')
+        dest_image.save(dest_image_path)
