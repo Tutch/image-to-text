@@ -1,11 +1,13 @@
-from .PixelsCharactersConverter import PixelsCharactersConverter as PCC
 import tkinter as tk
+from .CharacterMap import CharacterMap as CM
+from .PixelsCharactersConverter import PixelsCharactersConverter as PCC
 
 
 class Output:
     @staticmethod
     def export(source_image_path, dest_file_path):
-        converter = PCC()
+        cm = CM()
+        converter = PCC(cm)
         characters = converter.pixels_to_characters(source_image_path)
 
         with open(dest_file_path, mode='w+', encoding='utf-8') as dest_file:
@@ -16,7 +18,9 @@ class Output:
 
     @staticmethod
     def convert(source_image_path, dest_image_path):
-        converter = PCC()
+        #cm = CM(CM.LucidaSansConsole())
+        cm = CM(CM.Braciola())
+        converter = PCC(cm)
         characters = converter.pixels_to_characters(source_image_path)
         dest_image = converter.characters_to_image(characters)
         dest_image.save(dest_image_path)
