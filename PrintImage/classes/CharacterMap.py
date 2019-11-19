@@ -21,8 +21,7 @@ class CharacterMap:
         interval = 0
         threshold_list = []
 
-        if mode == CharacterMap.LucidaSansConsole() or mode is None:
-            interval = 255/len(self.character_map)
+        interval = 255/len(self.character_map)
 
         for i in range(0, len(self.character_map)):
             result = math.floor(0 + interval * i)
@@ -35,7 +34,7 @@ class CharacterMap:
         if mode == CharacterMap.LucidaSansConsole() or mode is None:
             return os.path.join(path, 'lucon.ttf'), -1
         elif mode == CharacterMap.Braciola():
-            return os.path.join(path, 'braciola.ttf'), 0
+            return os.path.join(path, 'braciola.ttf'), -2
 
     def get_character(self, pixel_color):
         if self.character_map is not None and self.threshold_map is not None:
@@ -51,4 +50,4 @@ class CharacterMap:
 
     @staticmethod
     def Braciola():
-        return 'bruciola'
+        return 'braciola'

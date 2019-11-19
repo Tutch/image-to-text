@@ -18,8 +18,8 @@ class Output:
 
     @staticmethod
     def convert(source_image_path, dest_image_path):
-        #cm = CM(CM.LucidaSansConsole())
-        cm = CM(CM.Braciola())
+        cm = CM(CM.LucidaSansConsole())
+        #cm = CM(CM.Braciola())
         converter = PCC(cm)
         characters = converter.pixels_to_characters(source_image_path)
         dest_image = converter.characters_to_image(characters)
