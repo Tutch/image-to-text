@@ -1,6 +1,7 @@
 import math
 import os
 
+
 class CharacterMap:
 
     def __init__(self, mode=None):
@@ -13,7 +14,10 @@ class CharacterMap:
         self.font, self.spacing_offset = self.__font(mode)
 
     def __map(self, mode=None):
-        # if mode == CharacterMap.LucidaSansConsole() or mode is None:
+        # This mapping was created for Lucida. The first character in the
+        # list has more "pixels per square" than the second one, the second has more than
+        # the third etc so it works like a "grayscale" of sorts.
+        # TODO: Create a mapping for Braciola and other potential fonts.
         return ['Q', 'W', 'M', 'B', 'N', 'D', 'R', 'O', 'G', 'H', 'E',
                 'K', 'A', 'P', 'U', 'S', 'X', 'Z', 'V', 'C', 'I', 'F', 'Y', 'T', 'J', 'L']
 
@@ -30,11 +34,12 @@ class CharacterMap:
         return threshold_list
 
     def __font(self, mode=None):
-        path = os.path.abspath(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'fonts'))
+        path = os.path.abspath(os.path.join(os.path.dirname(
+            os.path.realpath(__file__)), '..', 'fonts'))
         if mode == CharacterMap.LucidaSansConsole() or mode is None:
-            return os.path.join(path, 'lucon.ttf'), -1
+            return os.path.join(path, 'lucon.ttf'), -3
         elif mode == CharacterMap.Braciola():
-            return os.path.join(path, 'braciola.ttf'), -2
+            return os.path.join(path, 'braciola.ttf'), -3
 
     def get_character(self, pixel_color):
         if self.character_map is not None and self.threshold_map is not None:

@@ -24,7 +24,7 @@ class PixelsCharactersConverter:
 
     def characters_to_image(self, characters):
         output_text = ''
-        scale = 3
+        scale = 5
 
         # Width and height based on the elements in the array
         character_count_width = len(characters[0])

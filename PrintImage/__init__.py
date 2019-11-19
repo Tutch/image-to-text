@@ -1,12 +1,12 @@
 from .classes import Output
 
 
-def convert(source_image, dest_image):
-    Output.convert(source_image, dest_image)
+def convert(args):
+    Output(args).convert()
 
 
-def export(source_image, dest_file):
-    Output.export(source_image, dest_file)
+def export(args):
+    Output(args).export()
 
 
 if '__name__' == '__main__':
